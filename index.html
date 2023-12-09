@@ -38,31 +38,24 @@
     }
     .video-container {
       position: relative;
-      display: inline-block;
+      display: block;
+      margin-top: 100px;
     }
     .video-container video {
       width: 400px;
       height: 300px;
       cursor: pointer;
     }
-    .video-container .play-button {
-      position: absolute;
-      
-      transform: translate(-50%, -50%);
-      font-size: 48px;
-      color: white;
-      cursor: pointer;
-      display: none;
-    }
+    
     .corner-image1 {
       position: absolute;
-      top: 50%;
+      top: 75%;
       left: 10%;
       
     }
     .corner-image2 {
       position: absolute;
-      top: 50%;
+      top: 75%;
       left: 80%;
       
     }
@@ -85,7 +78,6 @@
         <button class="button" type="button" onclick="changeColor()" onmousedown="playSound()" onmouseup="stopSound()"> cái nút</button>
         <div class="video-container">
             <video src="fieu.webm" autoplay loop controls ></video>
-            <div class="play-button">&#9658;</div>
         </div>
         <img class="corner-image1" src="b472a187696137c70e6456450b99c351.gif" alt="Small Image">
         <img class="corner-image2" src="b472a187696137c70e6456450b99c351.gif" alt="Small Image">
