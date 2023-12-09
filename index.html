@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>hppd</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    h1 {
+      margin-top: 50px;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      margin-top: 20px;
+    }
+    .button{
+        position: absolute;
+        display: block;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 10px;
+        
+        width: 100px;
+      height: 30px;
+
+    }
+    .container{
+        position: relative;
+        width: auto;
+    }
+    img {
+        width: 200px;
+      height: 200px;
+      margin-top: 20px;
+    }
+    .video-container {
+      position: relative;
+      display: inline-block;
+    }
+    .video-container video {
+      width: 400px;
+      height: 300px;
+      cursor: pointer;
+    }
+    .video-container .play-button {
+      position: absolute;
+      
+      transform: translate(-50%, -50%);
+      font-size: 48px;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+    .corner-image1 {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      
+    }
+    .corner-image2 {
+      position: absolute;
+      top: 50%;
+      left: 80%;
+      
+    }
+    @media (max-width: 768px) {
+      .video-container video {
+        width: 100%;
+        height: auto;
+      }
+      .play-button{
+        display: block!important;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+
+        <img src="1607430236497.jpg" alt="Image">
+        <h1>Happy birthday {{chèn Huỳnh Ngọc Đài vào đây}}!!!</h1>
+        <button class="button" type="button" onclick="changeColor()" onmousedown="playSound()" onmouseup="stopSound()"> cái nút</button>
+        <div class="video-container">
+            <video src="fieu.webm" autoplay loop controls ></video>
+            <div class="play-button">&#9658;</div>
+        </div>
+        <img class="corner-image1" src="b472a187696137c70e6456450b99c351.gif" alt="Small Image">
+        <img class="corner-image2" src="b472a187696137c70e6456450b99c351.gif" alt="Small Image">
+        <audio id="sound" src="nyan-cat_1.mp3"></audio>
+    </div>
+    <script>
+        var video = document.querySelector('video');
+        var playButton = document.querySelector('.play-button');
+        var h1 = document.querySelector('h1');
+        var sound = document.getElementById('sound');
+      
+        var i = 0;
+        function changeColor() {
+        var colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
+        var randomColor = colors[i];
+        if(i == colors.length){
+            i = 0;
+        }
+        i++;
+        h1.style.color = randomColor;
+        }
+        function playSound(){
+            sound.play();
+
+        }
+        function stopSound(){
+            sound.pause();
+            sound.currentTime = 0;
+        }
+        // Show controls when video is clicked
+        video.addEventListener('click', function() {
+            this.controls = true;
+        });
+        
+        // Show play button on smaller screen sizes
+        if (window.innerWidth <= 768) {
+            video.style.display = 'none';
+            
+        }
+        
+        // Play video on hover
+        video.addEventListener('mouseenter', function() {
+            this.play();
+        });
+        
+        // Pause video on mouse leave
+        video.addEventListener('mouseleave', function() {
+        this.pause();
+    });
+  </script>
+</body>
+</html>
